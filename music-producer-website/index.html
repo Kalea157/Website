@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEATS & BEYOND - Musikproduktion der Zukunft</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/3d-effects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Ladebildschirm -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="sound-wave">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <h2>Initialisiere Audio-Universum...</h2>
+        </div>
+    </div>
+
+    <!-- Sprachsteuerungs-Overlay -->
+    <div id="voice-overlay" class="voice-overlay">
+        <div class="voice-indicator">
+            <div class="voice-circle"></div>
+            <p id="voice-status">Sage "Hey Producer" zum Aktivieren</p>
+            <p id="voice-command" class="voice-command"></p>
+        </div>
+    </div>
+
+    <!-- 3D Canvas Background -->
+    <canvas id="bg-canvas" class="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" data-voice="navigation">
+        <div class="nav-container">
+            <div class="logo" data-voice="logo">
+                <span class="logo-text glitch" data-text="BEATS & BEYOND">BEATS & BEYOND</span>
+            </div>
+            <ul class="nav-menu" data-voice="menü">
+                <li><a href="#home" data-voice="home" class="nav-link hover-3d">Home</a></li>
+                <li><a href="#services" data-voice="services" class="nav-link hover-3d">Services</a></li>
+                <li><a href="#portfolio" data-voice="portfolio" class="nav-link hover-3d">Portfolio</a></li>
+                <li><a href="#studio" data-voice="studio" class="nav-link hover-3d">Studio</a></li>
+                <li><a href="#contact" data-voice="kontakt" class="nav-link hover-3d">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" data-voice="startseite">
+        <div class="hero-3d-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="word-animate">MUSIK</span>
+                    <span class="word-animate">PRODUZENT</span>
+                    <span class="word-animate">DER</span>
+                    <span class="word-animate">ZUKUNFT</span>
+                </h1>
+                <p class="hero-subtitle typing-effect">Wo Klang auf Innovation trifft</p>
+                <div class="cta-buttons">
+                    <button class="btn-3d primary" data-voice="projekt starten">
+                        <span class="btn-face">Projekt Starten</span>
+                    </button>
+                    <button class="btn-3d secondary" data-voice="demo hören">
+                        <span class="btn-face">Demo Hören</span>
+                    </button>
+                </div>
+            </div>
+            <div class="floating-elements">
+                <div class="floating-cube"></div>
+                <div class="floating-sphere"></div>
+                <div class="floating-pyramid"></div>
+            </div>
+        </div>
+        <div class="audio-visualizer" id="visualizer">
+            <canvas id="audio-canvas"></canvas>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services" data-voice="dienstleistungen">
+        <div class="container">
+            <h2 class="section-title glitch-hover">MEINE SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-card" data-voice="musikproduktion">
+                    <div class="card-3d">
+                        <div class="card-face front">
+                            <div class="icon-3d">🎵</div>
+                            <h3>Musikproduktion</h3>
+                            <p>Professionelle Beats & Tracks</p>
+                        </div>
+                        <div class="card-face back">
+                            <p>Von Hip-Hop bis EDM - ich produziere deinen Sound mit modernster Technologie</p>
+                            <button class="btn-glow" data-voice="mehr erfahren produktion">Mehr erfahren</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card" data-voice="mixing">
+                    <div class="card-3d">
+                        <div class="card-face front">
+                            <div class="icon-3d">🎛️</div>
+                            <h3>Mixing & Mastering</h3>
+                            <p>Kristallklarer Sound</p>
+                        </div>
+                        <div class="card-face back">
+                            <p>Bringe deine Tracks auf das nächste Level mit professionellem Mixing & Mastering</p>
+                            <button class="btn-glow" data-voice="mehr erfahren mixing">Mehr erfahren</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card" data-voice="sounddesign">
+                    <div class="card-3d">
+                        <div class="card-face front">
+                            <div class="icon-3d">🎹</div>
+                            <h3>Sound Design</h3>
+                            <p>Einzigartige Klangwelten</p>
+                        </div>
+                        <div class="card-face back">
+                            <p>Kreiere ich einzigartige Sounds für deine Projekte - von Games bis Film</p>
+                            <button class="btn-glow" data-voice="mehr erfahren sound">Mehr erfahren</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio" data-voice="portfolio">
+        <div class="container">
+            <h2 class="section-title">MEINE ARBEITEN</h2>
+            <div class="portfolio-3d-gallery">
+                <div class="gallery-container" id="gallery">
+                    <div class="portfolio-item" data-voice="track eins">
+                        <div class="album-cover">
+                            <div class="vinyl-record"></div>
+                            <img src="https://via.placeholder.com/300x300/9D4EDD/ffffff?text=Track+1" alt="Track 1">
+                        </div>
+                        <h3>Future Bass</h3>
+                        <button class="play-btn" data-voice="abspielen track eins">▶</button>
+                    </div>
+                    <div class="portfolio-item" data-voice="track zwei">
+                        <div class="album-cover">
+                            <div class="vinyl-record"></div>
+                            <img src="https://via.placeholder.com/300x300/7209B7/ffffff?text=Track+2" alt="Track 2">
+                        </div>
+                        <h3>Trap Beat</h3>
+                        <button class="play-btn" data-voice="abspielen track zwei">▶</button>
+                    </div>
+                    <div class="portfolio-item" data-voice="track drei">
+                        <div class="album-cover">
+                            <div class="vinyl-record"></div>
+                            <img src="https://via.placeholder.com/300x300/560BAD/ffffff?text=Track+3" alt="Track 3">
+                        </div>
+                        <h3>EDM Anthem</h3>
+                        <button class="play-btn" data-voice="abspielen track drei">▶</button>
+                    </div>
+                </div>
+                <div class="portfolio-controls">
+                    <button class="control-btn" data-voice="vorheriges" id="prev-btn">◀</button>
+                    <button class="control-btn" data-voice="nächstes" id="next-btn">▶</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Section -->
+    <section id="studio" class="studio" data-voice="studio">
+        <div class="container">
+            <h2 class="section-title">MEIN STUDIO</h2>
+            <div class="studio-3d-tour">
+                <div class="studio-viewer" id="studio-viewer">
+                    <div class="studio-room">
+                        <div class="wall wall-back"></div>
+                        <div class="wall wall-left"></div>
+                        <div class="wall wall-right"></div>
+                        <div class="floor"></div>
+                        <div class="equipment mixing-console" data-voice="mischpult">
+                            <div class="tooltip">SSL 9000J Konsole</div>
+                        </div>
+                        <div class="equipment monitors" data-voice="monitore">
+                            <div class="tooltip">Genelec 8351B</div>
+                        </div>
+                        <div class="equipment synth-rack" data-voice="synthesizer">
+                            <div class="tooltip">Moog & Prophet Synths</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="studio-info">
+                    <h3>State-of-the-Art Equipment</h3>
+                    <ul class="equipment-list">
+                        <li data-voice="equipment eins">SSL 9000J Series Konsole</li>
+                        <li data-voice="equipment zwei">Genelec 8351B Monitore</li>
+                        <li data-voice="equipment drei">Neumann U87 Mikrofon</li>
+                        <li data-voice="equipment vier">UAD Apollo x16</li>
+                        <li data-voice="equipment fünf">Moog One Synthesizer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-voice="kontakt">
+        <div class="container">
+            <h2 class="section-title">LET'S CREATE</h2>
+            <div class="contact-3d-form">
+                <form id="contact-form" class="holographic-form">
+                    <div class="form-group">
+                        <input type="text" id="name" required data-voice="name eingeben">
+                        <label for="name">Dein Name</label>
+                        <div class="input-effect"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required data-voice="email eingeben">
+                        <label for="email">Deine E-Mail</label>
+                        <div class="input-effect"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="project" required data-voice="projekt eingeben">
+                        <label for="project">Projekttyp</label>
+                        <div class="input-effect"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" required data-voice="nachricht eingeben"></textarea>
+                        <label for="message">Deine Nachricht</label>
+                        <div class="input-effect"></div>
+                    </div>
+                    <button type="submit" class="submit-btn-3d" data-voice="nachricht senden">
+                        <span class="btn-inner">
+                            <span class="btn-text">Nachricht Senden</span>
+                            <span class="btn-particles"></span>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" data-voice="fußzeile">
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#" class="social-3d" data-voice="instagram">
+                        <span class="social-icon">📷</span>
+                    </a>
+                    <a href="#" class="social-3d" data-voice="spotify">
+                        <span class="social-icon">🎵</span>
+                    </a>
+                    <a href="#" class="social-3d" data-voice="youtube">
+                        <span class="social-icon">📹</span>
+                    </a>
+                    <a href="#" class="social-3d" data-voice="soundcloud">
+                        <span class="social-icon">☁️</span>
+                    </a>
+                </div>
+                <p class="copyright">&copy; 2024 BEATS & BEYOND. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Player (Hidden) -->
+    <audio id="audio-player" style="display: none;">
+        <source src="audio/demo.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/voice-control.js"></script>
+    <script src="js/3d-animations.js"></script>
+    <script src="js/audio-visualizer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

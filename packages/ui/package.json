@@ -9,6 +9,6 @@
     "dev": "tsc -w -p tsconfig.build.json"
   },
   "devDependencies": {
-    "typescript": "^5.4.0"
+    "typescript": "5.3.3"
   }
 }

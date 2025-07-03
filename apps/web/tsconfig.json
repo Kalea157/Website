@@ -5,13 +5,22 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@liyana/ui": ["../../packages/ui"]
-    }
+      "@liyana/ui": [
+        "../../packages/ui"
+      ]
+    },
+    "strict": false,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

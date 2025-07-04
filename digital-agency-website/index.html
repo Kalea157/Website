@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Solutions - Webentwicklung & Digitale Lösungen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#home" class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>Digital Solutions</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#about" class="nav-link">Über uns</a></li>
+                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Digitale Lösungen für <span class="gradient-text">Ihren Erfolg</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Wir entwickeln moderne Webseiten, Apps und Automatisierungen, 
+                    die Ihr Unternehmen auf das nächste Level bringen.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Projekt starten</a>
+                    <a href="#portfolio" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i>
+                        Portfolio ansehen
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="videos/hero-animation.mp4" type="video/mp4">
+                    <img src="images/hero-fallback.jpg" alt="Digital Solutions">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Unsere Services</h2>
+                <p class="section-subtitle">
+                    Von der Idee bis zur Umsetzung - wir bieten Ihnen digitale Komplettlösungen
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Webentwicklung</h3>
+                    <p>
+                        Moderne, responsive Webseiten mit den neuesten Technologien. 
+                        Von einfachen Landing Pages bis zu komplexen Webanwendungen.
+                    </p>
+                    <ul class="service-features">
+                        <li>Responsive Design</li>
+                        <li>SEO Optimierung</li>
+                        <li>Performance</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Entwicklung</h3>
+                    <p>
+                        Native und Cross-Platform Apps für iOS und Android. 
+                        Benutzerfreundlich, performant und skalierbar.
+                    </p>
+                    <ul class="service-features">
+                        <li>iOS & Android</li>
+                        <li>React Native</li>
+                        <li>Flutter</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Automatisierung</h3>
+                    <p>
+                        Optimieren Sie Ihre Geschäftsprozesse mit intelligenten 
+                        Automatisierungslösungen und sparen Sie Zeit und Kosten.
+                    </p>
+                    <ul class="service-features">
+                        <li>Workflow Automation</li>
+                        <li>API Integration</li>
+                        <li>Process Optimization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>IT-Strukturierung</h3>
+                    <p>
+                        Wir analysieren und optimieren Ihre IT-Infrastruktur für 
+                        maximale Effizienz und Sicherheit.
+                    </p>
+                    <ul class="service-features">
+                        <li>Cloud Migration</li>
+                        <li>DevOps</li>
+                        <li>Security Audit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-subtitle">
+                    Entdecken Sie unsere erfolgreich umgesetzten Projekte
+                </p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="web">Webseiten</button>
+                <button class="filter-btn" data-filter="app">Apps</button>
+                <button class="filter-btn" data-filter="automation">Automatisierung</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio-1.jpg" alt="E-Commerce Platform">
+                        <div class="portfolio-overlay">
+                            <h3>E-Commerce Platform</h3>
+                            <p>Moderne Online-Shop Lösung mit integriertem CMS</p>
+                            <a href="#" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio-2.jpg" alt="Fitness Tracking App">
+                        <div class="portfolio-overlay">
+                            <h3>Fitness Tracking App</h3>
+                            <p>Cross-Platform App für Fitness-Enthusiasten</p>
+                            <a href="#" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="automation">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio-3.jpg" alt="CRM Automatisierung">
+                        <div class="portfolio-overlay">
+                            <h3>CRM Automatisierung</h3>
+                            <p>Vollautomatisiertes Kundenmanagement-System</p>
+                            <a href="#" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio-4.jpg" alt="Corporate Website">
+                        <div class="portfolio-overlay">
+                            <h3>Corporate Website</h3>
+                            <p>Professioneller Webauftritt für Großunternehmen</p>
+                            <a href="#" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio-5.jpg" alt="Banking App">
+                        <div class="portfolio-overlay">
+                            <h3>Banking App</h3>
+                            <p>Sichere Mobile Banking Lösung</p>
+                            <a href="#" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="automation">
+                    <div class="portfolio-image">
+                        <img src="images/portfolio-6.jpg" alt="Workflow Automation">
+                        <div class="portfolio-overlay">
+                            <h3>Workflow Automation</h3>
+                            <p>Intelligente Prozessautomatisierung</p>
+                            <a href="#" class="portfolio-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Über uns</h2>
+                <p class="section-subtitle">
+                    Ihr Partner für digitale Innovation und Transformation
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Wir sind Digital Solutions</h3>
+                    <p>
+                        Als führende Digitalagentur spezialisieren wir uns auf die Entwicklung 
+                        maßgeschneiderter digitaler Lösungen. Unser erfahrenes Team aus 
+                        Entwicklern, Designern und Strategen arbeitet eng mit unseren Kunden 
+                        zusammen, um innovative Projekte zu realisieren.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">Projekte</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Kunden</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Experten</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Jahre</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/team.jpg" alt="Unser Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kontakt</h2>
+                <p class="section-subtitle">
+                    Lassen Sie uns über Ihr Projekt sprechen
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Bereit für Ihr nächstes Projekt?</h3>
+                    <p>
+                        Kontaktieren Sie uns für eine unverbindliche Beratung. 
+                        Wir freuen uns darauf, Ihre Ideen zu verwirklichen.
+                    </p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@digital-solutions.de</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+49 123 456 789</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Berlin, Deutschland</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Ihr Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Ihre E-Mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Telefonnummer (optional)">
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Service auswählen</option>
+                            <option value="web">Webentwicklung</option>
+                            <option value="app">App Entwicklung</option>
+                            <option value="automation">Automatisierung</option>
+                            <option value="structure">IT-Strukturierung</option>
+                            <option value="other">Sonstiges</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Beschreiben Sie Ihr Projekt" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Nachricht senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Digital Solutions</h3>
+                    <p>Ihre Experten für digitale Transformation und innovative Weblösungen.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Webentwicklung</a></li>
+                        <li><a href="#services">App Entwicklung</a></li>
+                        <li><a href="#services">Automatisierung</a></li>
+                        <li><a href="#services">IT-Strukturierung</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="#about">Über uns</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                        <li><a href="#">Impressum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Bleiben Sie auf dem Laufenden über die neuesten Trends und Technologien.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Ihre E-Mail">
+                        <button type="submit">Abonnieren</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Digital Solutions. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

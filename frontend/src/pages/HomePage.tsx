@@ -27,7 +27,8 @@ const HomePage: React.FC = () => {
       rating: 4.8,
       reviews: 124,
       description: 'Ein verführerischer Duft mit roten Beeren und samtigen Rosen',
-      isNew: true
+      isNew: true,
+      gradient: 'from-red-500 to-pink-600'
     },
     {
       id: 'liyana-nour-intense',
@@ -37,7 +38,8 @@ const HomePage: React.FC = () => {
       rating: 4.9,
       reviews: 89,
       description: 'Kraftvolle Intensität mit warmen Gewürzen und Amber',
-      isBestseller: true
+      isBestseller: true,
+      gradient: 'from-orange-500 to-red-600'
     },
     {
       id: 'liyana-nour-classic',
@@ -46,7 +48,8 @@ const HomePage: React.FC = () => {
       image: '/images/parfum-classic.jpg',
       rating: 4.7,
       reviews: 203,
-      description: 'Zeitlose Eleganz mit floralen Noten und dezenter Vanille'
+      description: 'Zeitlose Eleganz mit floralen Noten und dezenter Vanille',
+      gradient: 'from-primary-500 to-purple-600'
     }
   ]
 
@@ -79,6 +82,10 @@ const HomePage: React.FC = () => {
 
   const handleLearnMore = () => {
     speak('Erfahren Sie mehr über unsere einzigartige Sprachsteuerung')
+  }
+
+  const handleAddToWishlist = (productName: string) => {
+    speak(`${productName} wurde zu Ihren Favoriten hinzugefügt`)
   }
 
   return (
@@ -248,15 +255,18 @@ const HomePage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.8 }}
-                className="product-card group"
+                className="card-hover group relative overflow-hidden rounded-xl"
               >
                 {/* Product Image */}
-                <div className="relative aspect-square bg-gradient-to-br from-primary-500 to-purple-600 rounded-lg mb-4 overflow-hidden">
+                <div className={`relative aspect-square bg-gradient-to-br ${product.gradient} rounded-lg mb-4 overflow-hidden`}>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="text-white text-4xl font-bold">
                       {product.name.split(' ').map(word => word[0]).join('').slice(0, 2)}
                     </span>
                   </div>
+                  
+                  {/* Shimmer Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   
                   {/* Badges */}
                   {product.isNew && (
@@ -282,6 +292,7 @@ const HomePage: React.FC = () => {
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
+                      onClick={() => handleAddToWishlist(product.name)}
                       className="btn-primary"
                     >
                       <Heart className="w-4 h-4 mr-2" />

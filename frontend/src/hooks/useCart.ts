@@ -64,7 +64,7 @@ export const useCart = (): UseCartReturn => {
   }, [])
 
   // Calculate discount based on cart value and applied coupons
-  const calculateDiscountForItems = (items: CartItem[], subtotal: number, coupons: string[]): Discount | null => {
+  const calculateDiscountForItems = (_items: CartItem[], subtotal: number, coupons: string[]): Discount | null => {
     // Free shipping discount
     if (subtotal >= FREE_SHIPPING_THRESHOLD) {
       return {

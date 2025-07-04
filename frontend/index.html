@@ -16,14 +16,14 @@
   <meta property="og:url" content="https://liyana-nour.com/">
   <meta property="og:title" content="Liyana Nour Extrait - Premium Parfüms">
   <meta property="og:description" content="Luxuriöse Parfüms mit innovativer Sprachsteuerung und barrierefreiem Design.">
-  <meta property="og:image" content="/og-image.jpg">
+  <meta property="og:image" content="/vite.svg">
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://liyana-nour.com/">
   <meta property="twitter:title" content="Liyana Nour Extrait - Premium Parfüms">
   <meta property="twitter:description" content="Luxuriöse Parfüms mit innovativer Sprachsteuerung und barrierefreiem Design.">
-  <meta property="twitter:image" content="/twitter-image.jpg">
+  <meta property="twitter:image" content="/vite.svg">
   
   <!-- Accessibility -->
   <meta name="theme-color" content="#8B5CF6">
@@ -34,9 +34,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
-  <!-- PWA Icons -->
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/manifest.json">
+  <!-- PWA Meta Tags -->
+  <link rel="apple-touch-icon" href="/vite.svg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Liyana Nour">
   
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -46,7 +48,7 @@
     "name": "Liyana Nour Extrait",
     "description": "Premium Parfüm E-Commerce mit innovativer Sprachsteuerung",
     "url": "https://liyana-nour.com",
-    "logo": "https://liyana-nour.com/logo.png",
+    "logo": "https://liyana-nour.com/vite.svg",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "DE"
@@ -70,9 +72,34 @@
   
   <!-- Loading indicator -->
   <div id="loading" class="fixed inset-0 bg-dark-900 flex items-center justify-center z-50">
-    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+    <div class="flex flex-col items-center space-y-4">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+      <div class="text-primary-400 text-sm">Liyana Nour wird geladen...</div>
+    </div>
   </div>
   
   <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Performance and Accessibility Script -->
+  <script>
+    // Remove loading indicator when React has loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        const loadingElement = document.getElementById('loading');
+        if (loadingElement) {
+          loadingElement.style.opacity = '0';
+          setTimeout(() => loadingElement.remove(), 300);
+        }
+      }, 1000);
+    });
+    
+    // Announce page changes for screen readers
+    window.announcePageChange = function(pageName) {
+      const announcements = document.getElementById('announcements');
+      if (announcements) {
+        announcements.textContent = `Navigiert zu ${pageName}`;
+      }
+    };
+  </script>
 </body>
 </html>

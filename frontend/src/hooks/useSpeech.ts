@@ -61,7 +61,7 @@ export const useSpeech = (): UseSpeechReturn => {
       announceToScreenReader('Sprachsteuerung beendet')
     }
 
-    recognition.onresult = (event) => {
+    recognition.onresult = (event: any) => {
       const result = event.results[event.results.length - 1]
       const transcript = result[0].transcript.trim()
       const confidence = result[0].confidence
@@ -74,7 +74,7 @@ export const useSpeech = (): UseSpeechReturn => {
       }
     }
 
-    recognition.onerror = (event) => {
+    recognition.onerror = (event: any) => {
       setError(`Spracherkennungsfehler: ${event.error}`)
       setIsListening(false)
       
@@ -107,7 +107,7 @@ export const useSpeech = (): UseSpeechReturn => {
   }, [isSupported, settings.language])
 
   // Process voice commands
-  const processCommand = useCallback((transcript: string, confidence: number) => {
+  const processCommand = useCallback((transcript: string, _confidence: number) => {
     const command = parseCommand(transcript)
     
     if (command) {

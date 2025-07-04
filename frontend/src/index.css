@@ -5,7 +5,7 @@
 /* Custom scrollbar styles */
 @layer base {
   * {
-    @apply border-border;
+    @apply border-dark-600;
   }
   
   body {
@@ -99,7 +99,7 @@
   
   /* Product card animations */
   .product-card {
-    @apply card-hover group relative overflow-hidden;
+    @apply card-hover relative overflow-hidden;
   }
   
   .product-card::before {

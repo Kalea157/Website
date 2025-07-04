@@ -9,8 +9,7 @@ import {
   X, 
   Mic,
   MicOff,
-  Heart,
-  Globe
+  Heart
 } from 'lucide-react'
 import { useSpeech } from '../../hooks/useSpeech'
 import { useCart } from '../../hooks/useCart'

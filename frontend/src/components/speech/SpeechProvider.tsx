@@ -86,23 +86,19 @@ const SpeechProvider: React.FC<SpeechProviderProps> = ({ children }) => {
   // Handle microphone permission request
   useEffect(() => {
     const requestMicrophonePermission = async () => {
-      if (!speechHook.isSupported) return
+      if (!speechHook.isSupported) {
+        console.warn('Speech recognition is not supported in this browser')
+        return
+      }
 
-      try {
-        // Check if we already have permission
-        const permission = await navigator.permissions.query({ name: 'microphone' as PermissionName })
-        
-        if (permission.state === 'denied') {
+      // Only show permission dialog on first visit
+      const hasShownPermission = localStorage.getItem('speechPermissionShown')
+      
+      if (!hasShownPermission) {
+        setTimeout(() => {
           showMicrophonePermissionDialog()
-        } else if (permission.state === 'prompt') {
-          // Request permission by trying to access microphone
-          const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-          stream.getTracks().forEach(track => track.stop())
-          
-          toast.success('Mikrofonzugriff gewährt - Sprachsteuerung verfügbar!')
-        }
-      } catch (error) {
-        console.warn('Microphone permission check failed:', error)
+          localStorage.setItem('speechPermissionShown', 'true')
+        }, 3000) // Show after 3 seconds
       }
     }
 
@@ -111,7 +107,7 @@ const SpeechProvider: React.FC<SpeechProviderProps> = ({ children }) => {
 
   // Show microphone permission dialog
   const showMicrophonePermissionDialog = () => {
-    const shouldRequest = confirm(
+    if (window.confirm(
       'Möchten Sie die Sprachsteuerung aktivieren?\n\n' +
       'Diese Funktion benötigt Zugriff auf Ihr Mikrofon und ermöglicht:\n' +
       '• Navigation per Sprachbefehl\n' +
@@ -119,12 +115,13 @@ const SpeechProvider: React.FC<SpeechProviderProps> = ({ children }) => {
       '• Barrierefreie Bedienung\n\n' +
       'Ihre Sprachdaten werden nicht gespeichert oder übertragen.\n\n' +
       'Datenschutz: Alle Sprachbefehle werden lokal verarbeitet.'
-    )
-
-    if (shouldRequest) {
+    )) {
       requestMicrophoneAccess()
     } else {
-             toast('Sprachsteuerung deaktiviert. Sie können sie jederzeit in den Einstellungen aktivieren.', { icon: 'ℹ️' })
+      toast('Sprachsteuerung deaktiviert. Sie können sie jederzeit über das Mikrofon-Symbol aktivieren.', { 
+        icon: 'ℹ️',
+        duration: 5000 
+      })
     }
   }
 
@@ -136,7 +133,7 @@ const SpeechProvider: React.FC<SpeechProviderProps> = ({ children }) => {
       
       toast.success(
         'Sprachsteuerung aktiviert! Klicken Sie auf das Mikrofon-Symbol oder sagen Sie "Hey Liyana" um zu beginnen.',
-        { duration: 5000 }
+        { duration: 6000 }
       )
       
       speechHook.speak('Sprachsteuerung ist jetzt aktiv. Sagen Sie zum Beispiel "Gehe zu Produkten" oder "Suche nach Parfüm".')
@@ -166,7 +163,7 @@ const SpeechProvider: React.FC<SpeechProviderProps> = ({ children }) => {
     // This would need to search for the product by name
     // For now, we'll just show a message
     speechHook.speak(`Suche nach ${productName} zum Hinzufügen in den Warenkorb`)
-         toast(`Suche nach "${productName}"...`, { icon: '🔍' })
+    toast(`Suche nach "${productName}"...`, { icon: '🔍' })
     
     // Navigate to products with search
     navigate(`/products?search=${encodeURIComponent(productName)}`)
